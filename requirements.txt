@@ -1,2 +1,6 @@
 openai
 pyttsx3
+pathlib
+textwrap
+generativeai
+IPython
