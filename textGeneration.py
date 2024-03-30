@@ -8,7 +8,7 @@ import time
 from credentials import geminikey,openaikey
 
 
-
+openaikey = "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"
 def to_markdown(text):
   text = text.replace('•', '  *')
   return md(textwrap.indent(text, '> ', predicate=lambda _: True))
