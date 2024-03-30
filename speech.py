@@ -4,11 +4,10 @@ from textGeneration import generator
 def text_to_speech(text):
     engine = pyttsx3.init()
     rate = engine.getProperty("rate") #default speed is 200 
-    engine.setProperty("rate",150) # speed changed to 135
+    engine.setProperty("rate",175) # speed changed to 135
     engine.say(text)
     print(text)
     engine.runAndWait()
-
 
 if __name__ == "__main__":
     while True:
@@ -17,3 +16,4 @@ if __name__ == "__main__":
             text_to_speech("bye, if you have any questions feel free to ask me")
             break
         text_to_speech(generator(prompt))
+
