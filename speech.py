@@ -1,5 +1,8 @@
 import pyttsx3
 from textGeneration import generator
+from speechToText import speech_to_text
+import time
+from collections import deque
 
 def text_to_speech(text):
     engine = pyttsx3.init()
@@ -11,9 +14,14 @@ def text_to_speech(text):
 
 if __name__ == "__main__":
     while True:
-        prompt = input("enter you prompt: ")
+        with open('detections_log.txt', 'r') as file:
+                # data = file.readlines()  # Load text data from file into a Python dictionary
+                data = deque(file, maxlen=5)
+        prompt = speech_to_text()
+        print(prompt)
         if "bye" in prompt:
             text_to_speech("bye, if you have any questions feel free to ask me")
             break
-        text_to_speech(generator(prompt))
+        text_to_speech(generator(prompt,data))
+        time.sleep(5)
 
